@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -8,16 +9,62 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@mipmap/home"
     tools:context="com.example.jerryduran.myapplication.MainActivity">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:id="@+id/homeTitle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:text="CSUS"
+        android:layout_width="wrap_content"
+        tools:layout_marginLeft="40dp"
+        android:alpha="200"
+        android:fontFamily="cursive"
+        android:textSize="70sp"
+        android:textColor="@android:color/white"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="Tree Identifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/homeTitle2"
+        android:textColor="@android:color/white"
+        android:alpha="200"
+        android:textSize="50sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+        android:layout_below="@+id/homeTitle"
+        android:layout_centerHorizontal="true" />
+
+    <SearchView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchTree"
+        android:orientation="horizontal"
+        android:alpha="0.55"
+        android:background="#bdc6c9"
+        android:layout_marginBottom="188dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/homeTitle2"
+        android:layout_alignEnd="@+id/homeTitle2"
+        android:layout_alignLeft="@+id/homeTitle2"
+        android:layout_alignStart="@+id/homeTitle2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi there!"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="45dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="58dp" />
+        android:id="@+id/searchLabel"
+        android:text="Search by Tag# or Species Name"
+        android:alpha="1"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_above="@+id/searchTree"
+        android:layout_alignLeft="@+id/searchTree"
+        android:layout_alignStart="@+id/searchTree" />
+
+
 </RelativeLayout>

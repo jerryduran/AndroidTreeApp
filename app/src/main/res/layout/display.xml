@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_margin="35dp"
+        tools:ignore="UselessParent"
+        android:background="@android:color/transparent">
 
         <Button
             android:text="More Details"
@@ -15,33 +20,41 @@
             android:layout_height="wrap_content"
             android:id="@+id/button"
             android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/homeTitle"
-            android:layout_marginBottom="59dp" />
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
-        <EditText
+        <TextView
+            android:text="Sequoia sempervirens"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Description"
-            android:ems="10"
-            android:id="@+id/briefDesc"
-            android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_centerVertical="true"
+            android:id="@+id/treeName"
+            android:layout_above="@+id/treeDesc"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="22dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/treeDesc"
+            android:text="Sequoia sempervirens /sᵻˈkɔɪ.ə sɛmpərˈvaɪrənz/[2] is the sole living species of the genus Sequoia in the cypress family Cupressaceae (formerly treated in Taxodiaceae). Common names include coast redwood, coastal redwood[3] and California redwood.[4] It is an evergreen, long-lived, monoecious tree living 1,200–1,800 years or more."
+            android:textSize="16sp"
+            android:layout_marginBottom="43dp"
+            android:layout_above="@+id/button"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Tree Name"
-            android:ems="10"
-            android:id="@+id/homeTitle"
-            android:layout_alignParentTop="true"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/treee"
+            android:id="@+id/treeImage"
+            android:layout_above="@+id/treeName"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="30dp" />
-    </RelativeLayout>
+            android:layout_marginBottom="20dp"
+            android:background="@mipmap/treee" />
 
+    </RelativeLayout>
 </LinearLayout>

@@ -8,11 +8,13 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/display"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="35dp"
         tools:ignore="UselessParent"
-        android:background="@android:color/transparent">
+        android:background="@android:color/transparent"
+        tools:context="com.example.jerryduran.myapplication.Display">
 
         <Button
             android:text="More Details"
@@ -21,7 +23,8 @@
             android:id="@+id/button"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick="onMoreButtonClicked"/>
 
         <TextView
             android:text="Sequoia sempervirens"

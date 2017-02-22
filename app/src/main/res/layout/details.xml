@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="35dp"
+        tools:ignore="UselessParent"
+        android:background="@android:color/transparent"
+        tools:context="com.example.jerryduran.myapplication.Details">
+
+        <TextView
+            android:text="Sequoia sempervirens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/treeName"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Desc1"
+            android:text="Trees over 200 feet (60 m) are common, and many are over 300 ft (90 m)."
+            android:textSize="16sp"
+            android:layout_below="@+id/treeName"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="18dp" />
+
+        <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onBackButtonClicked"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coast redwoods were the world's largest trees before logging, with numerous historical specimens reportedly over 400 ft (122 m)."
+            android:textSize="16sp"
+            android:id="@+id/Desc2"
+            android:layout_marginTop="11dp"
+            android:layout_below="@+id/Desc1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The largest known living coast redwood used to be &quot;Iluvatar&quot;, with an estimated single trunk volume of 37,500 cu ft (1,060 cu m), but more giant redwoods were discovered in 2014, including Grogan's Fault, with 38,299 cu ft (1,084.5 cu m)."
+            android:textSize="16sp"
+            android:id="@+id/Desc3"
+            android:layout_below="@+id/Desc2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forty-one measured living trees are more than 360 ft (109.7 m) tall."
+            android:textSize="16sp"
+            android:id="@+id/Desc4"
+            android:layout_below="@+id/Desc3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="12dp" />
+
+    </RelativeLayout>
+</LinearLayout>

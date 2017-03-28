@@ -12,6 +12,7 @@
     android:background="@mipmap/home"
     tools:context="com.example.jerryduran.myapplication.MainActivity">
 
+
     <TextView
         android:layout_height="wrap_content"
         android:id="@+id/homeTitle"
@@ -66,6 +67,6 @@
         android:layout_above="@+id/searchTree"
         android:layout_alignLeft="@+id/searchTree"
         android:layout_alignStart="@+id/searchTree" />
-
+*/
 
 </RelativeLayout>

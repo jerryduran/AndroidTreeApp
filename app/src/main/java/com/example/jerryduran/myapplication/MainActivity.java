@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSearchClick(View v) {
         if (v.getId() == searchTree) {
             Intent i = new Intent(MainActivity.this, Display.class);
-            String query = "13";
+            String query = "13"; //TODO: Replace with input from search bar.
             i.putExtra("query", query);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);

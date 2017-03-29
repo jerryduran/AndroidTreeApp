@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/treeDesc"
             android:minLines="9"
-            android:text="Sequoia sempervirens /sᵻˈkɔɪ.ə sɛmpərˈvaɪrənz/[2] is the sole living species of the genus Sequoia in the cypress family Cupressaceae (formerly treated in Taxodiaceae). Common names include coast redwood, coastal redwood[3] and California redwood.[4] It is an evergreen, long-lived, monoecious tree living 1,200–1,800 years or more."
+            android:text="SpeciesDesc"
             android:textSize="16sp"
             android:maxLines="10"
             android:layout_marginBottom="25dp"
@@ -61,7 +61,7 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:text="TextView"
+            android:text="ID#"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/number"
@@ -71,7 +71,7 @@
             android:layout_marginBottom="11dp" />
 
         <TextView
-            android:text="Sequoia sempervirens"
+            android:text="CommonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/treeName2"
@@ -83,7 +83,7 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:text="TextView"
+            android:text="M/F"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/number"
@@ -95,7 +95,7 @@
             android:id="@+id/Gender" />
 
         <TextView
-            android:text="TextView"
+            android:text="GPSCoords"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/Gender"

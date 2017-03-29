@@ -67,6 +67,6 @@
         android:layout_above="@+id/searchTree"
         android:layout_alignLeft="@+id/searchTree"
         android:layout_alignStart="@+id/searchTree" />
-*/
+
 
 </RelativeLayout>

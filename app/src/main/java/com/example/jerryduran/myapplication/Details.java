@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Details extends Activity{
     private TextView textView;
+    private String query;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +23,14 @@ public class Details extends Activity{
         this.textView = (TextView) findViewById(R.id.number);
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
-        List<String> quotes = databaseAccess.getTree();
-        List<String> quotes2 = databaseAccess.getSpecies();
+
+        query = getIntent().getStringExtra("query");
+
+        List<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
+        List<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(1)));
         databaseAccess.close();
 
-        this.textView = (TextView) findViewById(R.id.treeName2);
+        this.textView = (TextView) findViewById(R.id.treeName);
         String test = quotes2.get(1);
         textView.setText(test);
 
@@ -47,12 +51,13 @@ public class Details extends Activity{
         textView.setText(test);
 
         this.textView = (TextView) findViewById(R.id.Desc5);
-        test = quotes2.get(4);
+        test = quotes2.get(9);
         textView.setText(test);
     }
 
     public void onBackButtonClicked(View v){
         Intent i = new Intent(Details.this, Display.class);
+        i.putExtra("query", query);
         startActivity(i);
     }
 

@@ -3,7 +3,7 @@ package com.example.jerryduran.myapplication;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import android.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +16,7 @@ import android.content.Context;
 import android.widget.TextView;
 import java.util.List;
 import android.widget.ListView;
+import android.view.View;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -37,18 +38,24 @@ public class MainActivity extends AppCompatActivity {
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        mySearchView = (SearchView) findViewById(R.id.searchTree);
+
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
             public boolean onQueryTextChange(String newText){
-                return true;
+                return false;
             }
+
+            @Override
             public boolean onQueryTextSubmit(String query){
+                //TODO: Add failure message if nothing found. (Either move actual search to main and fail here, or add failure message to Display.java)
                 Intent i = new Intent(MainActivity.this, Display.class);
                 i.setAction(Intent.ACTION_SEARCH);
                 i.putExtra("query", query);
                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 finish();
-                return true;
+                return false;
             }
         });
     }

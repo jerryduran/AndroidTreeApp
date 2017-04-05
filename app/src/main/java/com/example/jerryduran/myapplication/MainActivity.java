@@ -26,7 +26,7 @@ import static com.example.jerryduran.myapplication.R.id.number;
 import static com.example.jerryduran.myapplication.R.id.searchTree;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView textView;
+    private SearchView mySearchView;
     private GoogleApiClient client;
 
 
@@ -35,11 +35,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            public boolean onQueryTextChange(String newText){
+                return true;
+            }
+            public boolean onQueryTextSubmit(String query){
+                Intent i = new Intent(MainActivity.this, Display.class);
+                i.setAction(Intent.ACTION_SEARCH);
+                i.putExtra("query", query);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+                return true;
+            }
+        });
     }
 
+/*
     public void onSearchClick(View v) {
         if (v.getId() == searchTree) {
             Intent i = new Intent(MainActivity.this, Display.class);
@@ -51,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
+*/
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("Main Page") // TODO: Define a title for the content shown.

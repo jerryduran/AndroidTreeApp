@@ -12,92 +12,101 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="35dp"
-        tools:ignore="UselessParent"
         android:background="@android:color/transparent"
-        tools:context="com.example.jerryduran.myapplication.Details">
+        tools:context="com.example.jerryduran.myapplication.Details"
+        tools:ignore="UselessParent">
 
         <TextView
-            android:text="Species Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/treeName"
-            android:textSize="24sp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textAllCaps="false"
-            android:maxLines="1" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/Desc1"
-            android:text="SpeciesDesc1"
-            android:textSize="16sp"
-            android:maxLines="5"
-            android:layout_below="@+id/treeName"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="18dp" />
+            android:layout_alignParentTop="true"
+            android:maxLines="1"
+            android:text="Species Name"
+            android:textAllCaps="false"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/Desc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/treeName"
+            android:layout_marginTop="18dp"
+            android:maxLines="5"
+            android:text="SpeciesDesc1"
+            android:textSize="16sp" />
 
         <Button
-            android:text="Back"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:maxLines="5"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:onClick="onBackButtonClicked"/>
+            android:maxLines="5"
+            android:onClick="onBackButtonClicked"
+            android:text="Back" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SpeciesDesc2"
-            android:textSize="16sp"
-            android:maxLines="5"
             android:id="@+id/Desc2"
-            android:layout_marginTop="11dp"
-            android:layout_below="@+id/Desc1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SpeciesDesc3"
-            android:textSize="16sp"
-            android:id="@+id/Desc3"
-            android:maxLines="5"
-            android:layout_below="@+id/Desc2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="12dp" />
+            android:layout_below="@+id/Desc1"
+            android:layout_marginTop="11dp"
+            android:maxLines="5"
+            android:text="SpeciesDesc2"
+            android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/Desc3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SpeciesDesc4"
-            android:textSize="16sp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Desc2"
+            android:layout_marginTop="12dp"
+            android:maxLines="5"
+            android:text="SpeciesDesc3"
+            android:textSize="16sp" />
+
+        <TextView
             android:id="@+id/Desc4"
-            android:layout_marginTop="12dp"
-            android:layout_below="@+id/Desc3"
-            android:maxLines="5"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SpeciesDesc5"
-            android:textSize="16sp"
-            android:id="@+id/Desc5"
-            android:layout_marginTop="12dp"
-            android:layout_below="@+id/Desc4"
-            android:maxLines="5"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Desc3"
+            android:layout_marginTop="12dp"
+            android:maxLines="5"
+            android:text="SpeciesDesc4"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/Desc5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/Desc4"
+            android:layout_marginTop="12dp"
+            android:maxLines="5"
+            android:text="SpeciesDesc5"
+            android:textSize="16sp" />
+
+        <fragment
+            android:id="@+id/maps"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/Desc5" />
 
     </RelativeLayout>
 </LinearLayout>

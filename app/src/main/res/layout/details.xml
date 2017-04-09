@@ -17,10 +17,10 @@
         tools:context="com.example.jerryduran.myapplication.Details">
 
         <TextView
-            android:text="Sequoia sempervirens"
+            android:text="Species Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/treeName2"
+            android:id="@+id/treeName"
             android:textSize="24sp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -32,10 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Desc1"
-            android:text="Trees over 200 feet (60 m) are common, and many are over 300 ft (90 m)."
+            android:text="SpeciesDesc1"
             android:textSize="16sp"
             android:maxLines="5"
-            android:layout_below="@+id/treeName2"
+            android:layout_below="@+id/treeName"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginTop="18dp" />
@@ -54,7 +54,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Coast redwoods were the world's largest trees before logging, with numerous historical specimens reportedly over 400 ft (122 m)."
+            android:text="SpeciesDesc2"
             android:textSize="16sp"
             android:maxLines="5"
             android:id="@+id/Desc2"
@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="The largest known living coast redwood used to be &quot;Iluvatar&quot;, with an estimated single trunk volume of 37,500 cu ft (1,060 cu m), but more giant redwoods were discovered in 2014, including Grogan's Fault, with 38,299 cu ft (1,084.5 cu m)."
+            android:text="SpeciesDesc3"
             android:textSize="16sp"
             android:id="@+id/Desc3"
             android:maxLines="5"
@@ -78,7 +78,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forty-one measured living trees are more than 360 ft (109.7 m) tall."
+            android:text="SpeciesDesc4"
             android:textSize="16sp"
             android:id="@+id/Desc4"
             android:layout_marginTop="12dp"
@@ -88,15 +88,16 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="SpeciesDesc5"
+            android:textSize="16sp"
+            android:id="@+id/Desc5"
+            android:layout_marginTop="12dp"
             android:layout_below="@+id/Desc4"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="16dp"
             android:maxLines="5"
-            android:id="@+id/Desc5" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 </LinearLayout>

@@ -1,23 +1,24 @@
-        package com.example.jerryduran.myapplication;
+package com.example.jerryduran.myapplication;
 
-        import android.app.Activity;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.TextView;
-        import android.widget.ImageView;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.ImageView;
 
-        import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
-        import java.util.List;
+import java.util.List;
 
-        /**
+/**
  * Created by jerryduran on 2/21/17.
  */
 
 public class Display extends Activity{
     private TextView textView;
     private ImageView imageView;
+    private String query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,11 @@ public class Display extends Activity{
         this.textView = (TextView) findViewById(R.id.number);
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
-        List<String> quotes = databaseAccess.getTree();
-        List<String> quotes2 = databaseAccess.getSpecies();
+
+        query = getIntent().getStringExtra("query");
+
+        List<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
+        List<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(1)));
         databaseAccess.close();
         String test = quotes.get(0);
         textView.setText("#" + test);
@@ -59,6 +63,7 @@ public class Display extends Activity{
 
     public void onMoreButtonClicked(View v){
         Intent i = new Intent(Display.this, Details.class);
+        i.putExtra("query", query);
         startActivity(i);
     }
 

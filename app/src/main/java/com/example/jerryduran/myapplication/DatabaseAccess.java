@@ -39,38 +39,49 @@ public class DatabaseAccess {
         }
     }
 
-    public List<String> getTree() {
+    public List<String> getTree(int query) {
         List<String> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM TreeTable", null);
-        cursor.moveToLast();
+        cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0));
-            list.add(cursor.getString(1));
-            list.add(cursor.getString(2));
-            list.add(cursor.getString(3));
-            list.add(cursor.getString(4));
+            if(cursor.getInt(0) == query){
+                list.add(cursor.getString(0));
+                list.add(cursor.getString(1));
+                list.add(cursor.getString(2));
+                list.add(cursor.getString(3));
+                list.add(cursor.getString(4));
+                cursor.close();
+                return list;
+            }
             cursor.moveToNext();
         }
+        list.add(null); //add null to list to indicate that query was not found.
         cursor.close();
         return list;
     }
 
-    public List<String> getSpecies() {
+    public List<String> getSpecies(int query) {
         List<String> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable", null);
-        cursor.moveToLast();
+        cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            list.add(cursor.getString(0));
-            list.add(cursor.getString(1));
-            list.add(cursor.getString(2));
-            list.add(cursor.getString(3));
-            list.add(cursor.getString(4));
-            list.add(cursor.getString(5));
-            list.add(cursor.getString(6));
-            list.add(cursor.getString(7));
-            list.add(cursor.getString(8));
+            if(cursor.getInt(0) == query){
+                list.add(cursor.getString(0));
+                list.add(cursor.getString(1));
+                list.add(cursor.getString(2));
+                list.add(cursor.getString(3));
+                list.add(cursor.getString(4));
+                list.add(cursor.getString(5));
+                list.add(cursor.getString(6));
+                list.add(cursor.getString(7));
+                list.add(cursor.getString(8));
+                list.add(cursor.getString(9));
+                cursor.close();
+                return list;
+            }
             cursor.moveToNext();
         }
+        list.add(null); //add null to list to indicate that query was not found.
         cursor.close();
         return list;
     }

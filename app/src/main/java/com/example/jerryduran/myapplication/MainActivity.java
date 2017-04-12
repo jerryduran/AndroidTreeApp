@@ -3,7 +3,7 @@ package com.example.jerryduran.myapplication;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import android.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +16,7 @@ import android.content.Context;
 import android.widget.TextView;
 import java.util.List;
 import android.widget.ListView;
+import android.view.View;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -26,7 +27,7 @@ import static com.example.jerryduran.myapplication.R.id.number;
 import static com.example.jerryduran.myapplication.R.id.searchTree;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView textView;
+    private SearchView mySearchView;
     private GoogleApiClient client;
 
 
@@ -35,11 +36,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        mySearchView = (SearchView) findViewById(R.id.searchTree);
+
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextChange(String newText){
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query){
+                //TODO: Add failure message if nothing found. (Either move actual search to main and fail here, or add failure message to Display.java)
+                Intent i = new Intent(MainActivity.this, Display.class);
+                i.setAction(Intent.ACTION_SEARCH);
+                i.putExtra("query", query);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                finish();
+                return false;
+            }
+        });
     }
 
+/*
     public void onSearchClick(View v) {
         if (v.getId() == searchTree) {
             Intent i = new Intent(MainActivity.this, Display.class);
@@ -51,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
+*/
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("Main Page") // TODO: Define a title for the content shown.

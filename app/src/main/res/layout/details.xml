@@ -17,7 +17,7 @@
         tools:context="com.example.jerryduran.myapplication.Details">
 
         <TextView
-            android:text="Species Name"
+            android:id="@+id/treeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/treeName"
@@ -96,8 +96,18 @@
             android:layout_marginTop="12dp"
             android:layout_below="@+id/Desc4"
             android:maxLines="5"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:text="SpeciesDesc5"
+            android:textSize="16sp" />
+
+        <fragment
+            android:id="@+id/maps"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/button"
+            android:layout_below="@+id/Desc5"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1" />
 
     </RelativeLayout>
 </LinearLayout>

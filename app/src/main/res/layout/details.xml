@@ -100,7 +100,6 @@
             android:layout_marginTop="12dp"
             android:layout_below="@+id/Desc4"
             android:maxLines="5"
-            android:text="SpeciesDesc5"
             android:textSize="16sp" />
 
         <fragment

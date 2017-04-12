@@ -86,15 +86,22 @@ public class Details extends Activity implements  OnMapReadyCallback{
         mapFragment.getMapAsync(this);
     }
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(GoogleMap googleMap)
+    {
         mGoogleMap = googleMap;
-        float zoom = 20;
-
+        float zoom = 27;
 
         LatLng ll = new LatLng(38.5593836, -121.4234791);
+        //LatLng ll = new LatLng(xCoordinate, yCoordinate); //Use th
 
+
+        // Sets the map type to be "hybrid"
+        //Add map marker here
+        googleMap.addMarker(new MarkerOptions().position(ll).title(((TextView) findViewById(R.id.treeName)).getText().toString()));
 
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll,zoom);
+        CameraUpdateFactory.zoomBy(10.0f);
+
         mGoogleMap.moveCamera(update);
     }
 

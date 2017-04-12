@@ -102,11 +102,12 @@
         <fragment
             android:id="@+id/maps"
             class="com.google.android.gms.maps.MapFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/button"
+            android:layout_below="@+id/Desc5"
             android:layout_marginTop="30dp"
-            android:layout_below="@+id/Desc5" />
+            android:layout_weight="1" />
 
     </RelativeLayout>
 </LinearLayout>

@@ -9,30 +9,23 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by jerryduran on 2/21/17.
- */
 
 public class Display extends Activity{
     private TextView textView;
     private ImageView imageView;
-    private String query;
+    private ArrayList<String> quotes;
+    private ArrayList<String> quotes2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display);
         this.textView = (TextView) findViewById(R.id.number);
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        databaseAccess.open();
 
-        query = getIntent().getStringExtra("query");
-
-        List<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
-        List<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(1)));
-        databaseAccess.close();
+        quotes = getIntent().getStringArrayListExtra("quotes");
+        quotes2 = getIntent().getStringArrayListExtra("quotes2");
         String test = quotes.get(0);
         textView.setText("#" + test);
 
@@ -63,13 +56,13 @@ public class Display extends Activity{
 
     public void onMoreButtonClicked(View v){
         Intent i = new Intent(Display.this, Details.class);
-        i.putExtra("query", query);
+        i.putStringArrayListExtra("quotes2", quotes2);
         startActivity(i);
     }
-
+/*
     public void onBackButtonClicked(View v){
         Intent i = new Intent(Display.this, MainActivity.class);
         startActivity(i);
     }
-
+*/
 }

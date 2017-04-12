@@ -4,6 +4,8 @@ package com.example.jerryduran.myapplication;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -27,7 +29,7 @@ import static com.example.jerryduran.myapplication.R.id.searchTree;
 
 public class SearchResults extends Activity {
     private ListView listView;
-    private String query;
+    private ArrayList<String> quotes2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +37,8 @@ public class SearchResults extends Activity {
         setContentView(R.layout.searchresults);
 
         this.listView = (ListView)findViewById(R.id.results);
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        databaseAccess.open();
-        query = getIntent().getStringExtra("query");
-        List<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
-        List<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(1)));
-        databaseAccess.close();
+
+        quotes2 = getIntent().getStringArrayListExtra("quotes2");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, quotes2);
         this.listView.setAdapter(adapter);

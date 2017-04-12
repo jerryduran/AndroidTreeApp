@@ -36,7 +36,7 @@
             android:scaleType="fitXY"
             android:adjustViewBounds="false"
             android:cropToPadding="false" />
-
+<!--
         <Button
             android:text="Back"
             android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
             android:layout_alignParentStart="true"
             android:id="@+id/button3"
             android:onClick="onBackButtonClicked" />
-
+-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

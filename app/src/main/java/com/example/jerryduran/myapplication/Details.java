@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,21 +15,15 @@ import java.util.List;
 
 public class Details extends Activity{
     private TextView textView;
-    private String query;
+    private ArrayList<String> quotes2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details);
 
         this.textView = (TextView) findViewById(R.id.number);
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        databaseAccess.open();
-
-        query = getIntent().getStringExtra("query");
-
-        List<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
-        List<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(1)));
-        databaseAccess.close();
+        quotes2 = getIntent().getStringArrayListExtra("quotes2");
 
         this.textView = (TextView) findViewById(R.id.treeName);
         String test = quotes2.get(1);
@@ -54,12 +49,12 @@ public class Details extends Activity{
         test = quotes2.get(9);
         textView.setText(test);
     }
-
+/*
     public void onBackButtonClicked(View v){
         Intent i = new Intent(Details.this, Display.class);
         i.putExtra("query", query);
         startActivity(i);
     }
-
+*/
 
 }

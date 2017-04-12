@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class DatabaseAccess {
     private SQLiteOpenHelper openHelper;
@@ -39,51 +40,62 @@ public class DatabaseAccess {
         }
     }
 
-    public List<String> getTree(int query) {
-        List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM TreeTable", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            if(cursor.getInt(0) == query){
-                list.add(cursor.getString(0));
-                list.add(cursor.getString(1));
-                list.add(cursor.getString(2));
-                list.add(cursor.getString(3));
-                list.add(cursor.getString(4));
-                cursor.close();
-                return list;
-            }
-            cursor.moveToNext();
+    public ArrayList<String> getTree(int query) {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM TreeTable WHERE treeID = " + query, null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else{
+            list.add(cursor.getString(0));
+            list.add(cursor.getString(1));
+            list.add(cursor.getString(2));
+            list.add(cursor.getString(3));
+            list.add(cursor.getString(4));
         }
-        list.add(null); //add null to list to indicate that query was not found.
         cursor.close();
         return list;
     }
 
-    public List<String> getSpecies(int query) {
-        List<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable", null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            if(cursor.getInt(0) == query){
-                list.add(cursor.getString(0));
-                list.add(cursor.getString(1));
-                list.add(cursor.getString(2));
-                list.add(cursor.getString(3));
-                list.add(cursor.getString(4));
-                list.add(cursor.getString(5));
-                list.add(cursor.getString(6));
-                list.add(cursor.getString(7));
-                list.add(cursor.getString(8));
-                list.add(cursor.getString(9));
-                cursor.close();
-                return list;
-            }
-            cursor.moveToNext();
+    public ArrayList<String> getSpecies(int query) {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE speciesID = " + query, null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else{
+            list.add(cursor.getString(0));
+            list.add(cursor.getString(1));
+            list.add(cursor.getString(2));
+            list.add(cursor.getString(3));
+            list.add(cursor.getString(4));
+            list.add(cursor.getString(5));
+            list.add(cursor.getString(6));
+            list.add(cursor.getString(7));
+            list.add(cursor.getString(8));
+            list.add(cursor.getString(9));
         }
-        list.add(null); //add null to list to indicate that query was not found.
         cursor.close();
         return list;
     }
 
+    public ArrayList<String> getSpeciesByName(String query) {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE (speciesName LIKE '%" + query +
+                                            "%' OR commonName LIKE '%" + query + "%')", null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else{
+            list.add(cursor.getString(0));
+            list.add(cursor.getString(1));
+            list.add(cursor.getString(2));
+            list.add(cursor.getString(3));
+            list.add(cursor.getString(4));
+            list.add(cursor.getString(5));
+            list.add(cursor.getString(6));
+            list.add(cursor.getString(7));
+            list.add(cursor.getString(8));
+            list.add(cursor.getString(9));
+        }
+        cursor.close();
+        return list;
+    }
 }

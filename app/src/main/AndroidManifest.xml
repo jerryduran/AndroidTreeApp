@@ -17,7 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Display"></activity>
-        <activity android:name=".Details"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <activity android:name=".Details"></activity>
+        <activity android:name=".TreeSpecies"></activity>
+        <activity android:name=".SearchResults"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"

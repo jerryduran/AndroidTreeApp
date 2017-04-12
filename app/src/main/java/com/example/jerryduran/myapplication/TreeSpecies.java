@@ -9,26 +9,20 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TreeSpecies extends Activity{
     private TextView textView;
     private ImageView imageView;
-    private String query;
+    private ArrayList<String> quotes2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.display);
-        this.textView = (TextView) findViewById(R.id.number);
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        databaseAccess.open();
+        setContentView(R.layout.treespecies);
 
-        query = getIntent().getStringExtra("query");
-
-        List<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
-        List<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(1)));
-        databaseAccess.close();
+        quotes2 = getIntent().getStringArrayListExtra("quotes2");
 
         this.imageView = (ImageView) findViewById(R.id.treeImage);
         String test2 = quotes2.get(3);
@@ -48,13 +42,13 @@ public class TreeSpecies extends Activity{
 
     public void onMoreButtonClicked(View v){
         Intent i = new Intent(TreeSpecies.this, Details.class);
-        i.putExtra("query", query);
+        i.putStringArrayListExtra("quotes2", quotes2);
         startActivity(i);
     }
-
+/*
     public void onBackButtonClicked(View v){
         Intent i = new Intent(TreeSpecies.this, MainActivity.class);
         startActivity(i);
     }
-
+*/
 }

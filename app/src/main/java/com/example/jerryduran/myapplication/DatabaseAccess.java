@@ -84,6 +84,18 @@ public class DatabaseAccess {
         if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
             list.add(null);
         }else{
+            list.add(cursor.getString(2));
+        }
+        cursor.close();
+        return list;
+    }
+
+    public ArrayList<String> getSpeciesByNameFull(String query) {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE commonName = '" + query + "'", null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else{
             list.add(cursor.getString(0));
             list.add(cursor.getString(1));
             list.add(cursor.getString(2));

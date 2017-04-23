@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidTreeApp.iml" filepath="$PROJECT_DIR$/AndroidTreeApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidTreeApp4.iml" filepath="$PROJECT_DIR$/AndroidTreeApp4.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AndroidTreeApp5.iml" filepath="$PROJECT_DIR$/AndroidTreeApp5.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demo2.iml" filepath="$PROJECT_DIR$/demo2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/treeApp11.iml" filepath="$PROJECT_DIR$/treeApp11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sprint5.iml" filepath="$PROJECT_DIR$/sprint5.iml" />
     </modules>
   </component>
 </project>

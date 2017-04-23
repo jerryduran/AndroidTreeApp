@@ -28,6 +28,7 @@ import java.util.List;
 public class Details extends Activity implements  OnMapReadyCallback{
     private TextView textView;
     private ArrayList<String> quotes2;
+    private ArrayList<String> quotes;
     private String query;
     private GoogleMap mGoogleMap;
 
@@ -40,6 +41,7 @@ public class Details extends Activity implements  OnMapReadyCallback{
 
         this.textView = (TextView) findViewById(R.id.number);
         quotes2 = getIntent().getStringArrayListExtra("quotes2");
+      //  quotes = getIntent().getStringArrayListExtra("quotes");
 
 
         this.textView = (TextView) findViewById(R.id.treeName);
@@ -66,11 +68,11 @@ public class Details extends Activity implements  OnMapReadyCallback{
         test = quotes2.get(9);
         textView.setText(test);
 
-        //String xTemp = quotes.get(3);
-       // String yTemp = quotes.get(4);
+      //  String xTemp = quotes.get(3);
+     //   String yTemp = quotes.get(4);
 
-        //xCoordinate = Float.valueOf(xTemp);
-        //yCoordinate = Float.valueOf(yTemp);
+      //  xCoordinate = Float.valueOf(xTemp);
+      //  yCoordinate = Float.valueOf(yTemp);
 
         // Google Map
         initMap();
@@ -88,7 +90,7 @@ public class Details extends Activity implements  OnMapReadyCallback{
         float zoom = 27;
 
         LatLng ll = new LatLng(38.5593836, -121.4234791);
-        //LatLng ll = new LatLng(xCoordinate, yCoordinate); //Use th
+       // LatLng ll = new LatLng(xCoordinate, yCoordinate); //Use th
 
 
         // Sets the map type to be "hybrid"
@@ -101,12 +103,5 @@ public class Details extends Activity implements  OnMapReadyCallback{
         mGoogleMap.moveCamera(update);
     }
 
-/*
-    public void onBackButtonClicked(View v){
-        Intent i = new Intent(Details.this, Display.class);
-        i.putExtra("query", query);
-        startActivity(i);
-    }
-*/
 
 }

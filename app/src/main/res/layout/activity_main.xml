@@ -9,64 +9,65 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@mipmap/home"
+    android:background="@mipmap/homescreen"
     tools:context="com.example.jerryduran.myapplication.MainActivity">
 
 
     <TextView
-        android:layout_height="wrap_content"
         android:id="@+id/homeTitle"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="CSUS"
         android:layout_width="wrap_content"
-        tools:layout_marginLeft="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
         android:alpha="200"
         android:fontFamily="cursive"
-        android:textSize="70sp"
+        android:text="Sacramento State"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="@android:color/white"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textSize="45sp"
+        tools:layout_marginLeft="40dp" />
 
     <TextView
-        android:text="Tree Identifier"
+        android:id="@+id/homeTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeTitle2"
-        android:textColor="@android:color/white"
+        android:layout_alignTop="@+id/homeTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
         android:alpha="200"
-        android:textSize="50sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:fontFamily="sans-serif"
-        android:textStyle="italic"
-        android:layout_below="@+id/homeTitle"
-        android:layout_centerHorizontal="true" />
+        android:text="Tree Identifier"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:textStyle="italic" />
 
     <SearchView
+        android:id="@+id/searchTree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchTree"
-        android:orientation="horizontal"
-        android:alpha="0.55"
-        android:background="#bdc6c9"
-        android:layout_marginBottom="188dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/homeTitle2"
-        android:layout_alignEnd="@+id/homeTitle2"
-        android:layout_alignLeft="@+id/homeTitle2"
-        android:layout_alignStart="@+id/homeTitle2"/>
-        <!-- android:onClick="onSearchClick" -->
+        android:layout_marginBottom="188dp"
+        android:alpha="0.75"
+        android:background="#bdc6c9"
+        android:orientation="horizontal"
+        android:layout_alignRight="@+id/homeTitle"
+        android:layout_alignEnd="@+id/homeTitle"
+        android:layout_alignLeft="@+id/searchLabel"
+        android:layout_alignStart="@+id/searchLabel" />
 
     <TextView
+        android:id="@+id/searchLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/searchLabel"
-        android:text="Search by Tag# or Species Name"
         android:alpha="1"
+        android:text="Search by Tag# or Species Name"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:layout_above="@+id/searchTree"
-        android:layout_alignLeft="@+id/searchTree"
-        android:layout_alignStart="@+id/searchTree" />
+        android:layout_alignLeft="@+id/homeTitle"
+        android:layout_alignStart="@+id/homeTitle" />
 
 
 </RelativeLayout>

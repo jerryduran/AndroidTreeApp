@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }else {
-                    ArrayList<String> quotes2 = databaseAccess.getSpeciesByName(query);
+                    ArrayList<String> quotes2 = databaseAccess.getSpeciesByNameFull(query);
                     if(quotes2.get(0) != null){
                         mySearchView.setQuery("", false);
                         mySearchView.clearFocus();
@@ -95,31 +95,30 @@ public class MainActivity extends AppCompatActivity {
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }else{
+                        quotes2 = databaseAccess.getSpeciesByName(query);
+                        if (quotes2.get(0) != null) {
+                            mySearchView.setQuery("", false);
+                            mySearchView.clearFocus();
+                            i = new Intent(MainActivity.this, SearchResults.class);
+                            i.putStringArrayListExtra("quotes2", quotes2);
+
+                            i.setAction(Intent.ACTION_SEARCH);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+                        }
+                    }
+                    if(quotes2.get(0) == null){
                         mySearchView.setQuery("", false);
                         mySearchView.clearFocus();
                         Toast.makeText(getApplicationContext(), "No tree found with \""+ query + "\" in its name.", Toast.LENGTH_SHORT).show();
                     }
 
                 }
-                //finish();
                 return false;
             }
         });
     }
 
-/*
-    public void onSearchClick(View v) {
-        if (v.getId() == searchTree) {
-            Intent i = new Intent(MainActivity.this, Display.class);
-            String query = "13"; //TODO: Replace with input from search bar.
-            i.putExtra("query", query);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(i);
-            finish();
-
-        }
-    }
-*/
 
 }
 

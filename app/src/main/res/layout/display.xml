@@ -4,104 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@layout/cartographer_repeating"
     android:weightSum="1"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/display"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="519dp"
         android:layout_margin="35dp"
-        tools:ignore="UselessParent"
         android:background="@android:color/transparent"
-        tools:context="com.example.jerryduran.myapplication.Display">
+        tools:context="com.example.jerryduran.myapplication.Display"
+        tools:ignore="UselessParent">
 
         <Button
-            android:text="More Details"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
+            android:onClick="onMoreButtonClicked"
+            android:text="More Details"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:onClick="onMoreButtonClicked"/>
+            android:layout_alignParentEnd="true" />
 
         <ImageView
-            android:layout_width="410dp"
-            android:layout_height="300dp"
             android:id="@+id/treeImage"
+            android:layout_width="410dp"
+            android:layout_height="350dp"
+            android:layout_marginBottom="10dp"
             android:layout_above="@+id/treeName2"
-            android:layout_marginBottom="20dp"
-            android:background="@mipmap/treee"
-            android:scaleType="fitXY"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:adjustViewBounds="false"
-            android:cropToPadding="false" />
-<!--
-        <Button
-            android:text="Back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/treeDesc"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/button3"
-            android:onClick="onBackButtonClicked" />
--->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/treeDesc"
-            android:minLines="9"
-            android:text="SpeciesDesc"
-            android:textSize="16sp"
-            android:maxLines="10"
-            android:layout_marginBottom="25dp"
-            android:layout_above="@+id/button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:cropToPadding="false"
+            android:scaleType="fitXY" />
 
         <TextView
-            android:text="ID#"
+            android:id="@+id/treeDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="10"
+            android:minLines="9"
+            android:text="SpeciesDesc"
+            android:textSize="14sp"
+            android:layout_marginBottom="31dp"
+            android:layout_above="@+id/button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
             android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_above="@+id/treeDesc"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="11dp" />
+            android:layout_marginBottom="11dp"
+            android:text="ID#" />
 
         <TextView
-            android:text="CommonName"
+            android:id="@+id/treeName2"
+            android:layout_marginBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/treeName2"
-            android:maxLines="1"
-            android:layout_marginBottom="12dp"
-            android:textSize="24sp"
             android:layout_above="@+id/number"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:maxLines="1"
+            android:text="CommonName"
+            android:textSize="24sp" />
 
         <TextView
-            android:text="M/F"
+            android:id="@+id/Gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/number"
-            android:layout_toRightOf="@+id/number"
-            android:layout_toEndOf="@+id/number"
             android:layout_marginLeft="18dp"
             android:layout_marginRight="30dp"
             android:layout_marginStart="18dp"
-            android:id="@+id/Gender" />
+            android:layout_toEndOf="@+id/number"
+            android:layout_toRightOf="@+id/number"
+            android:text="M/F" />
 
         <TextView
-            android:text="GPSCoords"
+            android:id="@+id/gpsCoor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/Gender"
-            android:layout_alignRight="@+id/treeName2"
             android:layout_alignEnd="@+id/treeName2"
-            android:id="@+id/gpsCoor" />
+            android:layout_alignRight="@+id/treeName2"
+            android:text="GPSCoords" />
 
     </RelativeLayout>
 </LinearLayout>

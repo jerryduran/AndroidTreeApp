@@ -45,10 +45,4 @@ public class TreeSpecies extends Activity{
         i.putStringArrayListExtra("quotes2", quotes2);
         startActivity(i);
     }
-/*
-    public void onBackButtonClicked(View v){
-        Intent i = new Intent(TreeSpecies.this, MainActivity.class);
-        startActivity(i);
-    }
-*/
 }

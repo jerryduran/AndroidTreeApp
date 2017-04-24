@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/Fave"
+        android:icon="@mipmap/ic_bookmark_border_black_24dp"
+        app:showAsAction="ifRoom"
+        android:title="Favorite">
+    </item>
+    <item
+        android:id="@+id/Menu"
+        android:icon="@mipmap/ic_menu_black_48dp"
+        android:title="Menu">
+    </item>
+</menu>

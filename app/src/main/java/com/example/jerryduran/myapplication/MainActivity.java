@@ -3,6 +3,7 @@ package com.example.jerryduran.myapplication;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ActionMenuView;
 import android.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,13 +15,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.database.Cursor;
 import android.content.Context;
 import android.widget.TextView;
-
+import android.support.v7.widget.Toolbar;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.ListView;
 import android.view.View;
 import android.widget.Toast;
+import android.view.MenuInflater;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -32,16 +34,32 @@ import static com.example.jerryduran.myapplication.R.id.searchTree;
 
 public class MainActivity extends AppCompatActivity {
     private SearchView mySearchView;
+    private ActionMenuView myMenu;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        setContentView(R.layout.activity_main);
         final DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
+
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        myMenu = (ActionMenuView) toolbar.findViewById(R.id.myMenu);
+        myMenu.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                return onOptionsItemSelected(menuItem);
+            }
+        });
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         mySearchView = (SearchView) findViewById(R.id.searchTree);
@@ -105,21 +123,26 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        // Inflate the menu; this adds items to the action bar if it is present.
+       // getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        // use amvMenu here
+        inflater.inflate(R.menu.menu_main, myMenu.getMenu());
+        MenuItem item = myMenu.getMenu().findItem(R.id.Fave);
+        item.setVisible(false);
+        return true;
     }
 
-/*
-    public void onSearchClick(View v) {
-        if (v.getId() == searchTree) {
-            Intent i = new Intent(MainActivity.this, Display.class);
-            String query = "13"; //TODO: Replace with input from search bar.
-            i.putExtra("query", query);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(i);
-            finish();
-
-        }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Do your actions here
+        return true;
     }
-*/
+
 
 }
 

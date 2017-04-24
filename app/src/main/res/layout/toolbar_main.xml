@@ -1,0 +1,16 @@
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_height="200dp"
+    android:layout_width="match_parent"
+    android:minHeight="?attr/actionBarSize"
+    android:background="@drawable/background_toolbar_main"
+    android:gravity="top|start">
+
+    <android.support.v7.widget.ActionMenuView
+        android:id="@+id/myMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"/>
+</android.support.v7.widget.Toolbar>

@@ -89,7 +89,7 @@ public class Details extends Activity implements  OnMapReadyCallback{
 
         LatLng ll = new LatLng(38.5593836, -121.4234791);
         //LatLng ll = new LatLng(xCoordinate, yCoordinate); //Use th
-
+        //TEST
 
         // Sets the map type to be "hybrid"
         //Add map marker here

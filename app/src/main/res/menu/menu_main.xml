@@ -6,9 +6,4 @@
         app:showAsAction="ifRoom"
         android:title="Favorite">
     </item>
-    <item
-        android:id="@+id/Menu"
-        android:icon="@mipmap/ic_menu_black_48dp"
-        android:title="Menu">
-    </item>
 </menu>

@@ -3,6 +3,12 @@ package com.example.jerryduran.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ActionMenuView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
@@ -12,16 +18,33 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Display extends Activity{
+public class Display extends AppCompatActivity{
     private TextView textView;
     private ImageView imageView;
     private ArrayList<String> quotes;
     private ArrayList<String> quotes2;
+    private ActionMenuView myMenu;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display);
+
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        myMenu = (ActionMenuView) toolbar.findViewById(R.id.myMenu);
+        myMenu.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                return onOptionsItemSelected(menuItem);
+            }
+        });
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         this.textView = (TextView) findViewById(R.id.number);
 
         quotes = getIntent().getStringArrayListExtra("quotes");
@@ -59,10 +82,22 @@ public class Display extends Activity{
         i.putStringArrayListExtra("quotes2", quotes2);
         startActivity(i);
     }
-/*
-    public void onBackButtonClicked(View v){
-        Intent i = new Intent(Display.this, MainActivity.class);
-        startActivity(i);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //MenuInflater inflater = getMenuInflater();
+         // Inflate the menu; this adds items to the action bar if it is present.
+         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        //inflater.inflate(R.menu.menu_main, myMenu.getMenu());
+        //MenuItem item = myMenu.getMenu().findItem(R.id.Fave);
+        //item.setVisible(false);
+        return true;
     }
-*/
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //Do someting
+        return true;
+    }
+
+
 }

@@ -103,5 +103,13 @@
             android:layout_alignEnd="@+id/treeName2"
             android:id="@+id/gpsCoor" />
 
+        <!-- Load the toolbar here -->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- Rest of content for the activity -->
     </RelativeLayout>
 </LinearLayout>

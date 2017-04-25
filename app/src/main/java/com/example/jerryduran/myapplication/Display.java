@@ -44,7 +44,7 @@ public class Display extends AppCompatActivity{
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         this.textView = (TextView) findViewById(R.id.number);
 
         quotes = getIntent().getStringArrayListExtra("quotes");

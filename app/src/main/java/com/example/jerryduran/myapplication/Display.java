@@ -18,7 +18,6 @@ public class Display extends Activity{
     private ImageView imageView;
     private ArrayList<String> quotes;
     private ArrayList<String> quotes2;
-    private ArrayList<String> quotes3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

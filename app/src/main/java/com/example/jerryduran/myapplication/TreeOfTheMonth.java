@@ -22,6 +22,7 @@ public class TreeOfTheMonth extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.treespecies);
         //TODO:use new table to get info
+        //TODO:selecting tree from new table done in DatabaseAccess, then a species page is loaded. this file is unused and should be removed.
         quotes2 = getIntent().getStringArrayListExtra("quotes2");
 
         this.imageView = (ImageView) findViewById(R.id.treeImage);

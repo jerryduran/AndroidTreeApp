@@ -63,6 +63,37 @@ public class MainActivity extends AppCompatActivity {
                         isID = false;
                     }
                 }
+                //Don't have toolbar yet, instead specific input results in tree of the month + All species.
+                if(query.charAt(0) == '!'){ //All species.
+                    ArrayList<String> quotes2 = databaseAccess.getSpeciesList();
+
+                    mySearchView.setQuery("", false);
+                    mySearchView.clearFocus();
+                    i = new Intent(MainActivity.this, SearchResults.class);
+                    i.putStringArrayListExtra("quotes2", quotes2);
+
+                    i.setAction(Intent.ACTION_SEARCH);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                    return false;
+                }
+                if(query.charAt(0) == '@') { //Tree of the Month.
+                    ArrayList<String> quotes = databaseAccess.getTreeOfMonth();
+                    ArrayList<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(0)));
+
+                    Toast.makeText(getApplicationContext(), quotes.get(1), Toast.LENGTH_SHORT).show();
+
+
+                    mySearchView.setQuery("", false);
+                    mySearchView.clearFocus();
+                    i = new Intent(MainActivity.this, TreeSpecies.class);
+                    i.putStringArrayListExtra("quotes2", quotes2);
+
+                    i.setAction(Intent.ACTION_SEARCH);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                    return false;
+                }
                 if(isID == true){
                     ArrayList<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
                     if(quotes.get(0) != null){
@@ -84,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }else {
+                    //Try to make exact search.
                     ArrayList<String> quotes2 = databaseAccess.getSpeciesByNameFull(query);
                     if(quotes2.get(0) != null){
                         mySearchView.setQuery("", false);
@@ -95,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }else{
+                        //If not found, do partial match.
                         quotes2 = databaseAccess.getSpeciesByName(query);
                         if (quotes2.get(0) != null) {
                             mySearchView.setQuery("", false);

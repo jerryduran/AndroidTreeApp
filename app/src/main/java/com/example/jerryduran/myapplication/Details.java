@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -25,11 +28,13 @@ import java.util.List;
  * Created by CthulhuInACan on 2/22/2017.
  */
 
-public class Details extends Activity implements  OnMapReadyCallback{
+public class Details extends AppCompatActivity implements  OnMapReadyCallback{
     private TextView textView;
     private ArrayList<String> quotes2;
     private String query;
     private GoogleMap mGoogleMap;
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mDrawerToggle;
 
     private float xCoordinate;
     private float yCoordinate;
@@ -37,6 +42,19 @@ public class Details extends Activity implements  OnMapReadyCallback{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
+
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            // method invoked only when the actionBar is not null.
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
 
         this.textView = (TextView) findViewById(R.id.number);
         quotes2 = getIntent().getStringArrayListExtra("quotes2");
@@ -101,12 +119,14 @@ public class Details extends Activity implements  OnMapReadyCallback{
         mGoogleMap.moveCamera(update);
     }
 
-/*
-    public void onBackButtonClicked(View v){
-        Intent i = new Intent(Details.this, Display.class);
-        i.putExtra("query", query);
-        startActivity(i);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Activate the navigation drawer toggle
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
-*/
 
 }

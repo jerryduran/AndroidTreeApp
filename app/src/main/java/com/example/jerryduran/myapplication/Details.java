@@ -43,7 +43,7 @@ public class Details extends AppCompatActivity implements  OnMapReadyCallback{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+       mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
 
         mDrawerLayout.addDrawerListener(mDrawerToggle);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -17,6 +18,7 @@ public class Display extends Activity{
     private ImageView imageView;
     private ArrayList<String> quotes;
     private ArrayList<String> quotes2;
+    private ArrayList<String> quotes3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

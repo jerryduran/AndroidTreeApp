@@ -110,4 +110,16 @@ public class DatabaseAccess {
         cursor.close();
         return list;
     }
+
+    public ArrayList<String> getSpeciesList() {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable" , null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else{
+            list.add(cursor.getString(2));
+        }
+        cursor.close();
+        return list;
+    }
 }

@@ -1,9 +1,15 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/all_trees"
+        android:icon="@mipmap/ic_search_white_24dp"
+        android:title="All Trees"/>
+    <item android:id="@+id/favorites"
+        android:icon="@mipmap/ic_favorite_white_24dp"
+    android:title="Favorites" />
+    <item android:id="@+id/tree_of_the_month"
+        android:icon="@mipmap/ic_explore_white_24dp"
+        android:title="Tree of the month"/>
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never"/>
+        android:icon="@mipmap/ic_settings_white_24dp"
+        android:title="Settings" />
 </menu>

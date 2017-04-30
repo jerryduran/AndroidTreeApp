@@ -2,6 +2,7 @@ package com.example.jerryduran.myapplication;
 
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +33,7 @@ import android.widget.ListView;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.ActionBar;
-
+import android.support.design.widget.NavigationView;
 
 
 import com.google.android.gms.appindexing.Action;
@@ -47,9 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private SearchView mySearchView;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-
-
-
+    private NavigationView nv;
 
 
     @Override
@@ -66,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             // method invoked only when the actionBar is not null.
@@ -73,30 +73,56 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayShowTitleEnabled(false);
 
         }
+        nv = (NavigationView) findViewById(R.id.nav_menu);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                                                 @Override
+                                                 public boolean onNavigationItemSelected(final MenuItem menuItem) {
+
+                                                     int id = menuItem.getItemId();
+                                                     switch (id) {
+                                                         case R.id.all_trees:
+                                                             // Do something
+                                                             Toast.makeText(MainActivity.this, "ALL Trees", Toast.LENGTH_SHORT).show();
+                                                             return true;
+
+                                                         case R.id.favorites:
+                                                             // Do something
+                                                             Toast.makeText(MainActivity.this, "Favorites", Toast.LENGTH_SHORT).show();
+                                                         return true;
+                                                         case R.id.tree_of_the_month:
+                                                             // Do something
+                                                             Toast.makeText(MainActivity.this, "Tree of the month", Toast.LENGTH_SHORT).show();
+                                                         default:
+                                                             return true;
+                                                     }
+
+
+                                                 }
+                                             });
 
 
         mySearchView = (SearchView) findViewById(R.id.searchTree);
 
-        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextChange(String newText){
+            public boolean onQueryTextChange(String newText) {
                 return false;
             }
 
             @Override
-            public boolean onQueryTextSubmit(String query){
+            public boolean onQueryTextSubmit(String query) {
                 //TODO: Add failure message if nothing found. (Either move actual search to main and fail here, or add failure message to Display.java)
                 boolean isID = true;
                 Intent i;
-                for(int j = 0; j < query.length(); j++){
-                    if(Character.isDigit(query.charAt(j))){
-                    }else{
+                for (int j = 0; j < query.length(); j++) {
+                    if (Character.isDigit(query.charAt(j))) {
+                    } else {
                         isID = false;
                     }
                 }
-                if(isID == true){
+                if (isID == true) {
                     ArrayList<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
-                    if(quotes.get(0) != null){
+                    if (quotes.get(0) != null) {
                         ArrayList<String> quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(1)));
 
                         mySearchView.setQuery("", false);
@@ -108,15 +134,15 @@ public class MainActivity extends AppCompatActivity {
                         i.setAction(Intent.ACTION_SEARCH);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                    }else{
+                    } else {
                         mySearchView.setQuery("", false);
                         mySearchView.clearFocus();
                         Toast.makeText(getApplicationContext(), "Tree ID \"" + query + " \" not found.", Toast.LENGTH_SHORT).show();
                     }
 
-                }else {
+                } else {
                     ArrayList<String> quotes2 = databaseAccess.getSpeciesByName(query);
-                    if(quotes2.get(0) != null){
+                    if (quotes2.get(0) != null) {
                         mySearchView.setQuery("", false);
                         mySearchView.clearFocus();
                         i = new Intent(MainActivity.this, TreeSpecies.class);
@@ -125,10 +151,10 @@ public class MainActivity extends AppCompatActivity {
                         i.setAction(Intent.ACTION_SEARCH);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                    }else{
+                    } else {
                         mySearchView.setQuery("", false);
                         mySearchView.clearFocus();
-                        Toast.makeText(getApplicationContext(), "No tree found with \""+ query + "\" in its name.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "No tree found with \"" + query + "\" in its name.", Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -138,19 +164,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Activate the navigation drawer toggle
+        // Activate the navigation drawer toggle();
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
+
     }
-
-
-
 }
+
+
+
+
+
+
+
 
 
 

@@ -11,6 +11,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@layout/cartographer_repeating"
     android:weightSum="1"
     android:orientation="vertical">
 
@@ -27,44 +28,38 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:onClick="onMoreButtonClicked"
-            android:text="More Details" />
+            android:text="More Details"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <ImageView
             android:id="@+id/treeImage"
             android:layout_width="410dp"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
+            android:layout_marginBottom="10dp"
             android:layout_above="@+id/treeName2"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:adjustViewBounds="false"
-            android:background="@mipmap/treee"
             android:cropToPadding="false"
             android:scaleType="fitXY" />
-        <!--
-        <Button
-            android:text="Back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/treeDesc"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/button3"
-            android:onClick="onBackButtonClicked" />
--->
+
         <TextView
             android:id="@+id/treeDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="25dp"
             android:maxLines="10"
             android:minLines="9"
             android:text="SpeciesDesc"
-            android:textSize="16sp" />
+            android:textSize="14sp"
+            android:layout_marginBottom="31dp"
+            android:layout_above="@+id/button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/number"
@@ -78,12 +73,12 @@
 
         <TextView
             android:id="@+id/treeName2"
+            android:layout_marginBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/number"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="12dp"
             android:maxLines="1"
             android:text="CommonName"
             android:textSize="24sp" />

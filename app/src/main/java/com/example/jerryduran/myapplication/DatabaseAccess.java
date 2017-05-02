@@ -5,7 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -79,8 +81,23 @@ public class DatabaseAccess {
 
     public ArrayList<String> getSpeciesByName(String query) {
         ArrayList<String> list = new ArrayList<>();
+        //TODO: Escape % and _.
         Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE (speciesName LIKE '%" + query +
                                             "%' OR commonName LIKE '%" + query + "%')", null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else{
+            do{
+                list.add(cursor.getString(2));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return list;
+    }
+
+    public ArrayList<String> getSpeciesByNameFull(String query) {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE commonName = '" + query + "'", null);
         if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
             list.add(null);
         }else{
@@ -97,5 +114,38 @@ public class DatabaseAccess {
         }
         cursor.close();
         return list;
+    }
+
+    public ArrayList<String> getSpeciesList() {
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable" , null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else{
+            do{
+                list.add(cursor.getString(2));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return list;
+    }
+
+    public ArrayList<String> getTreeOfMonth() {
+        ArrayList<String> list = new ArrayList<>();;
+
+        Calendar calendar = Calendar.getInstance();
+        int currentMonth = calendar.get(Calendar.MONTH); //0 indexed.
+
+        Cursor cursor = database.rawQuery("SELECT * FROM MonthTable WHERE monthID = " + (currentMonth + 1), null);
+        if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
+            list.add(null);
+        }else {
+            list.add(cursor.getString(1));//TreeID
+            list.add(cursor.getString(2));//Description
+        }
+
+        cursor.close();
+        return list;
+
     }
 }

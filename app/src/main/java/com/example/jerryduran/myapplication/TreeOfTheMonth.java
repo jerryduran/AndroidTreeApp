@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TreeSpecies extends Activity{
+public class TreeOfTheMonth extends Activity{
     private TextView textView;
     private ImageView imageView;
     private ArrayList<String> quotes2;
@@ -21,7 +21,8 @@ public class TreeSpecies extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.treespecies);
-
+        //TODO:use new table to get info
+        //TODO:selecting tree from new table done in DatabaseAccess, then a species page is loaded. this file is unused and should be removed.
         quotes2 = getIntent().getStringArrayListExtra("quotes2");
 
         this.imageView = (ImageView) findViewById(R.id.treeImage);
@@ -41,7 +42,7 @@ public class TreeSpecies extends Activity{
     }
 
     public void onMoreButtonClicked(View v){
-        Intent i = new Intent(TreeSpecies.this, Details.class);
+        Intent i = new Intent(TreeOfTheMonth.this, Details.class);
         i.putStringArrayListExtra("quotes2", quotes2);
         startActivity(i);
     }

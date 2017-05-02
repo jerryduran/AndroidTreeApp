@@ -6,10 +6,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@layout/cartographer_repeating"
     tools:context=".MainActivity">
 
+    <TextView android:id="@+id/output"
+        android:layout_height="wrap_content"
+        android:padding="1px"
+        android:layout_width="fill_parent" />
+
     <ListView
-        android:id="@+id/results"
+        android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center" />

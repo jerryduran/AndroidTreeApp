@@ -79,19 +79,47 @@ public class MainActivity extends AppCompatActivity {
                                                  public boolean onNavigationItemSelected(final MenuItem menuItem) {
 
                                                      int id = menuItem.getItemId();
+                                                     Intent i;
+                                                     ArrayList<String> quotes;
+                                                     ArrayList<String> quotes2;
                                                      switch (id) {
                                                          case R.id.all_trees:
-                                                             // Do something
-                                                             Toast.makeText(MainActivity.this, "ALL Trees", Toast.LENGTH_SHORT).show();
+                                                            quotes2 = databaseAccess.getSpeciesList();
+
+                                                             mySearchView.setQuery("", false);
+                                                             mySearchView.clearFocus();
+                                                             i = new Intent(MainActivity.this, SearchResults.class);
+                                                             i.putStringArrayListExtra("quotes2", quotes2);
+
+                                                             i.setAction(Intent.ACTION_SEARCH);
+                                                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                             startActivity(i);
+                                                             //Toast.makeText(MainActivity.this, "ALL Trees", Toast.LENGTH_SHORT).show();
                                                              return true;
 
                                                          case R.id.favorites:
                                                              // Do something
                                                              Toast.makeText(MainActivity.this, "Favorites", Toast.LENGTH_SHORT).show();
-                                                         return true;
+                                                             return true;
+
                                                          case R.id.tree_of_the_month:
-                                                             // Do something
-                                                             Toast.makeText(MainActivity.this, "Tree of the month", Toast.LENGTH_SHORT).show();
+                                                             quotes = databaseAccess.getTreeOfMonth();
+                                                             quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(0)));
+
+                                                             Toast.makeText(getApplicationContext(), quotes.get(1), Toast.LENGTH_SHORT).show();
+
+
+                                                             mySearchView.setQuery("", false);
+                                                             mySearchView.clearFocus();
+                                                             i = new Intent(MainActivity.this, TreeSpecies.class);
+                                                             i.putStringArrayListExtra("quotes2", quotes2);
+
+                                                             i.setAction(Intent.ACTION_SEARCH);
+                                                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                             startActivity(i);
+                                                             //Toast.makeText(MainActivity.this, "Tree of the month", Toast.LENGTH_SHORT).show();
+                                                             return true;
+
                                                          default:
                                                              return true;
                                                      }
@@ -141,8 +169,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 } else {
-                    ArrayList<String> quotes2 = databaseAccess.getSpeciesByName(query);
-                    if (quotes2.get(0) != null) {
+                    //Try to make exact search.
+                    ArrayList<String> quotes2 = databaseAccess.getSpeciesByNameFull(query);
+                    if(quotes2.get(0) != null){
                         mySearchView.setQuery("", false);
                         mySearchView.clearFocus();
                         i = new Intent(MainActivity.this, TreeSpecies.class);
@@ -151,18 +180,30 @@ public class MainActivity extends AppCompatActivity {
                         i.setAction(Intent.ACTION_SEARCH);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                    } else {
+                    }else{
+                        //If not found, do partial match.
+                        quotes2 = databaseAccess.getSpeciesByName(query);
+                        if (quotes2.get(0) != null) {
+                            mySearchView.setQuery("", false);
+                            mySearchView.clearFocus();
+                            i = new Intent(MainActivity.this, SearchResults.class);
+                            i.putStringArrayListExtra("quotes2", quotes2);
+
+                            i.setAction(Intent.ACTION_SEARCH);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+                        }
+                    }
+                    if(quotes2.get(0) == null){
                         mySearchView.setQuery("", false);
                         mySearchView.clearFocus();
-                        Toast.makeText(getApplicationContext(), "No tree found with \"" + query + "\" in its name.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "No tree found with \""+ query + "\" in its name.", Toast.LENGTH_SHORT).show();
                     }
 
                 }
-                //finish();
                 return false;
             }
         });
-
     }
 
     @Override

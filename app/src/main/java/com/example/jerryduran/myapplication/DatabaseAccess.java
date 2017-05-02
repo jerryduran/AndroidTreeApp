@@ -81,7 +81,7 @@ public class DatabaseAccess {
 
     public ArrayList<String> getSpeciesByName(String query) {
         ArrayList<String> list = new ArrayList<>();
-        //TODO: Escape % and _.
+        //TODO: No need to protect against SQL injections, it's a local app.
         Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE (speciesName LIKE '%" + query +
                                             "%' OR commonName LIKE '%" + query + "%')", null);
         if(!(cursor.moveToFirst()) || cursor.getCount() == 0){

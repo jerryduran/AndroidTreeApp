@@ -139,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //TODO: Add failure message if nothing found. (Either move actual search to main and fail here, or add failure message to Display.java)
                 boolean isID = true;
                 Intent i;
                 for (int j = 0; j < query.length(); j++) {

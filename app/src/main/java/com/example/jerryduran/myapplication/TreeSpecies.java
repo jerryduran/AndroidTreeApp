@@ -10,9 +10,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -22,6 +24,7 @@ import java.util.List;
 public class TreeSpecies extends Activity {
     private TextView textView;
     private ImageView imageView;
+    private ImageButton favoriteButton;
     private ArrayList<String> quotes2;
     private SearchView mySearchView;
     private DrawerLayout mDrawerLayout;
@@ -48,6 +51,14 @@ public class TreeSpecies extends Activity {
         this.textView = (TextView) findViewById(R.id.treeName2);
         String test4 = quotes2.get(2);
         textView.setText(test4);
+
+        favoriteButton = (ImageButton) findViewById(R.id.image_Favorite_Button);
+
+        favoriteButton.setOnClickListener(new View.OnClickListener() {
+            public void  onClick(View v) {
+                Toast.makeText(TreeSpecies.this, "Liked", Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 

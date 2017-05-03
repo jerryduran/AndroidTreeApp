@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                                                              return true;
 
                                                          case R.id.about:
-                                                             Toast.makeText(MainActivity.this, "Sacramento State Tree Identifier App\r\nDeveloped for Prof. Ron Coleman\r\nBy Chris Chan, Jerry Duran, Gerardo Duran, Oleksandr Kabanets", Toast.LENGTH_LONG).show();
+                                                             Toast.makeText(MainActivity.this, "Sacramento State Tree Identifier App\r\nDeveloped for Prof. Ron Coleman\r\nBy Chris Chan, Gerardo Duran, Oleksandr Kabanets, Victor H Huba", Toast.LENGTH_LONG).show();
                                                              return true;
 
                                                          default:

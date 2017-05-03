@@ -1,3 +1,4 @@
+<!--
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -5,9 +6,10 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+-->
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,17 +30,16 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onMoreButtonClicked"
-            android:text="More Details"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:onClick="onMoreButtonClicked"
+            android:text="More Details" />
 
         <ImageView
             android:id="@+id/treeImage"
             android:layout_width="410dp"
             android:layout_height="350dp"
-            android:layout_marginBottom="10dp"
             android:layout_above="@+id/treeName2"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -50,36 +51,35 @@
             android:id="@+id/treeDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="10"
-            android:minLines="9"
-            android:text="SpeciesDesc"
-            android:textSize="14sp"
-            android:layout_marginBottom="31dp"
-            android:layout_above="@+id/button"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_below="@+id/number"
+            android:layout_marginTop="11dp"
+            android:maxLines="9"
+            android:minLines="9"
+            android:text="SpeciesDesc"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/treeDesc"
+            android:layout_alignBaseline="@+id/Gender"
+            android:layout_alignBottom="@+id/Gender"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="11dp"
+            android:layout_marginTop="5dp"
             android:text="ID#" />
 
         <TextView
             android:id="@+id/treeName2"
-            android:layout_marginBottom="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/number"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:maxLines="1"
+            android:layout_marginTop="3dp"
             android:text="CommonName"
             android:textSize="24sp" />
 
@@ -87,10 +87,10 @@
             android:id="@+id/Gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/number"
-            android:layout_marginLeft="18dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginStart="18dp"
+            android:layout_below="@+id/treeName2"
+            android:layout_marginLeft="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/number"
             android:layout_toRightOf="@+id/number"
             android:text="M/F" />
@@ -99,9 +99,12 @@
             android:id="@+id/gpsCoor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/Gender"
-            android:layout_alignEnd="@+id/treeName2"
-            android:layout_alignRight="@+id/treeName2"
+            android:layout_below="@+id/treeName2"
+            android:layout_marginLeft="33dp"
+            android:layout_marginStart="33dp"
+            android:layout_toEndOf="@+id/Gender"
+            android:layout_toRightOf="@+id/Gender"
+            android:layout_marginTop="5dp"
             android:text="GPSCoords" />
 
 
@@ -109,22 +112,27 @@
             android:id="@+id/image_Favorite_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/gpsCoor"
-            android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button"
-            android:background="@android:drawable/screen_background_light_transparent"
-            android:backgroundTint="@android:drawable/screen_background_light_transparent"
+            android:layout_toEndOf="@+id/treeName2"
+            android:layout_toRightOf="@+id/treeName2"
+            android:layout_alignTop="@+id/treeName2"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:backgroundTint="@android:drawable/screen_background_dark_transparent"
             android:src="@mipmap/ic_favorite_white_24dp"
             android:visibility="visible" />
 
 
     </RelativeLayout>
-</LinearLayout>
-    <android.support.design.widget.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:menu="@menu/navigation_main"
-        android:layout_gravity="start">
 
-    </android.support.design.widget.NavigationView>
-</android.support.v4.widget.DrawerLayout>
+</LinearLayout>
+    <!--
+        <android.support.design.widget.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:menu="@menu/navigation_main"
+            android:layout_gravity="start"
+            android:background="#0b2d0b">
+        </android.support.design.widget.NavigationView>
+    </android.support.v4.widget.DrawerLayout>
+-->

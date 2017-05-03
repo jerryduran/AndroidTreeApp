@@ -2,5 +2,6 @@
     <string name="app_name">Tree APP</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="preference_file_key">treeFaveList6848</string>
 </resources>
 

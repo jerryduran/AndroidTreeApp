@@ -1,7 +1,12 @@
 package com.example.jerryduran.myapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Icon;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -31,6 +36,8 @@ public class Display extends AppCompatActivity{
     private ArrayList<String> quotes2;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -51,6 +58,13 @@ public class Display extends AppCompatActivity{
             actionBar.setDisplayShowTitleEnabled(false);
 
         }
+
+        favoriteButton = (ImageButton) findViewById(R.id.image_Favorite_Button);
+
+        sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+
+
 
         this.textView = (TextView) findViewById(R.id.number);
 
@@ -82,11 +96,34 @@ public class Display extends AppCompatActivity{
         test2 = quotes.get(4);
         textView.setText("(" + test + ", " + test2 + ")");
 
-        favoriteButton = (ImageButton) findViewById(R.id.image_Favorite_Button);
+        if(sharedPref.getInt( (((TextView) findViewById(R.id.treeName2)).getText().toString()),0) == 1)
+            favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_white_24dp);
+        else
+            favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_border_white_24dp);
+
 
         favoriteButton.setOnClickListener(new View.OnClickListener() {
             public void  onClick(View v) {
-                Toast.makeText(Display.this, "Liked", Toast.LENGTH_LONG).show();
+
+                int tmp;
+                tmp = sharedPref.getInt( (((TextView) findViewById(R.id.treeName2)).getText().toString()),0) == 0?1:0;
+
+                if(tmp == 1)
+                {
+                    editor.putInt((((TextView) findViewById(R.id.treeName2)).getText().toString()) , tmp);
+                    Toast.makeText(Display.this, "Faved", Toast.LENGTH_LONG).show();
+                    favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_white_24dp);
+
+                }
+                else
+                {
+                    editor.remove( (((TextView) findViewById(R.id.treeName2)).getText().toString()));
+                    Toast.makeText(Display.this, "Unfaved", Toast.LENGTH_LONG).show();
+                    favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_border_white_24dp);
+                }
+
+                editor.apply();
+
             }
         });
 

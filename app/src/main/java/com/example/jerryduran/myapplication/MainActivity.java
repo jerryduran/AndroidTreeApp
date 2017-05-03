@@ -1,5 +1,6 @@
 package com.example.jerryduran.myapplication;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -23,6 +24,8 @@ import android.support.v7.widget.Toolbar;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 import android.widget.ListView;
 import android.view.View;
 import android.widget.Toast;
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private NavigationView nv;
+    private SharedPreferences sharedPref;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -65,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
+
+        sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -99,7 +107,25 @@ public class MainActivity extends AppCompatActivity {
 
                                                          case R.id.favorites:
                                                              // Do something
-                                                             Toast.makeText(MainActivity.this, "Favorites", Toast.LENGTH_SHORT).show();
+
+                                                             quotes2 = new ArrayList<String>();
+
+                                                             quotes2.addAll(sharedPref.getAll().keySet());
+
+                                                             if(!quotes2.isEmpty())
+                                                             {
+                                                                 i = new Intent(MainActivity.this, SearchResults.class);
+                                                                 i.putStringArrayListExtra("quotes2", quotes2);
+
+                                                                 i.setAction(Intent.ACTION_SEARCH);
+                                                                 i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                                 startActivity(i);
+                                                             }
+                                                             else
+                                                             {
+                                                                 Toast.makeText(MainActivity.this, "No tree(s) tree saved.", Toast.LENGTH_SHORT).show();
+                                                             }
+
                                                              return true;
 
                                                          case R.id.tree_of_the_month:

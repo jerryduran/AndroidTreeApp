@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                                                              quotes = databaseAccess.getTreeOfMonth();
                                                              quotes2 = databaseAccess.getSpecies(Integer.parseInt(quotes.get(0)));
 
-                                                             Toast.makeText(getApplicationContext(), quotes.get(1), Toast.LENGTH_SHORT).show();
+                                                             Toast.makeText(getApplicationContext(), quotes.get(1), Toast.LENGTH_LONG).show();
 
 
                                                              mySearchView.setQuery("", false);
@@ -118,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
                                                              i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                              startActivity(i);
                                                              //Toast.makeText(MainActivity.this, "Tree of the month", Toast.LENGTH_SHORT).show();
+                                                             return true;
+
+                                                         case R.id.about:
+                                                             Toast.makeText(MainActivity.this, "Sacramento State Tree Identifier App\r\nDeveloped for Prof. Ron Coleman\r\nBy Chris Chan, Jerry Duran, Gerardo Duran, Oleksandr Kabanets", Toast.LENGTH_LONG).show();
                                                              return true;
 
                                                          default:

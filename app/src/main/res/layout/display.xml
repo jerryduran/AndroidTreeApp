@@ -117,8 +117,8 @@
             android:layout_alignTop="@+id/treeName2"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="4dp"
-            android:background="@android:drawable/screen_background_dark_transparent"
-            android:backgroundTint="@android:drawable/screen_background_dark_transparent"
+            android:background="@null"
+            android:backgroundTint="@android:drawable/screen_background_light_transparent"
             android:src="@mipmap/ic_favorite_white_24dp"
             android:visibility="visible" />
 

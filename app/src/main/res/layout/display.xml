@@ -112,7 +112,7 @@
             android:layout_alignBottom="@+id/gpsCoor"
             android:layout_alignLeft="@+id/button"
             android:layout_alignStart="@+id/button"
-            android:background="@android:drawable/screen_background_light_transparent"
+            android:background="@null"
             android:backgroundTint="@android:drawable/screen_background_light_transparent"
             android:src="@mipmap/ic_favorite_white_24dp"
             android:visibility="visible" />

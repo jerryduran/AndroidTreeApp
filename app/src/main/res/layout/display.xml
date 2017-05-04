@@ -114,7 +114,6 @@
             android:layout_alignStart="@+id/button"
             android:background="@null"
             android:backgroundTint="@android:drawable/screen_background_light_transparent"
-            android:src="@mipmap/ic_favorite_border_white_24dp"
             android:visibility="visible" />
 
 

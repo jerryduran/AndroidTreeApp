@@ -1,5 +1,8 @@
 package com.example.jerryduran.myapplication;
 
+/**
+ * Created by jerryduran on 5/4/17.
+ */
 
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
@@ -34,7 +37,7 @@ import static com.example.jerryduran.myapplication.R.id.searchTree;
  * Created by Chris Chan on 4/10/2017.
  */
 
-public class SearchResults extends ListActivity {
+public class FavoriteList extends ListActivity {
     private ListView listView;
     private TextView content;
     private ArrayList<String> quotes2;
@@ -42,7 +45,7 @@ public class SearchResults extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.searchresults);
+        setContentView(R.layout.favoritelist);
         // Locks screen to portrait
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -67,12 +70,9 @@ public class SearchResults extends ListActivity {
 
         quotes2 = databaseAccess.getSpeciesByNameFull(query);
 
-        i = new Intent(SearchResults.this, TreeSpecies.class);
+        i = new Intent(FavoriteList.this, TreeSpecies.class);
         i.putStringArrayListExtra("quotes2", quotes2);
         startActivity(i);
     }
 
 }
-
-
-

@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
                                                              if(!quotes2.isEmpty())
                                                              {
-                                                                 i = new Intent(MainActivity.this, SearchResults.class);
+                                                                 i = new Intent(MainActivity.this, FavoriteList.class);
                                                                  i.putStringArrayListExtra("quotes2", quotes2);
 
                                                                  i.setAction(Intent.ACTION_SEARCH);

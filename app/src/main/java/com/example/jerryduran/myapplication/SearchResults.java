@@ -1,6 +1,7 @@
 package com.example.jerryduran.myapplication;
 
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ArrayAdapter;
 import android.view.View;
@@ -42,6 +43,8 @@ public class SearchResults extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchresults);
+        // Locks screen to portrait
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         content = (TextView) findViewById(R.id.output);
 

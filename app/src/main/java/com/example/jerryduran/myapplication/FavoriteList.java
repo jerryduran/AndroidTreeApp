@@ -4,6 +4,7 @@ package com.example.jerryduran.myapplication;
  * Created by jerryduran on 5/4/17.
  */
 
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ArrayAdapter;
 import android.view.View;
@@ -45,6 +46,8 @@ public class FavoriteList extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favoritelist);
+        // Locks screen to portrait
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         content = (TextView) findViewById(R.id.output);
 

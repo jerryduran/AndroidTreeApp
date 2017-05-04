@@ -97,7 +97,8 @@ public class DatabaseAccess {
 
     public ArrayList<String> getSpeciesByNameFull(String query) {
         ArrayList<String> list = new ArrayList<>();
-        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE commonName = '" + query + "'", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM SpeciesTable WHERE (speciesName = '" + query +
+                                            "' OR commonName = '" + query + "')", null);
         if(!(cursor.moveToFirst()) || cursor.getCount() == 0){
             list.add(null);
         }else{

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@layout/cartographer_repeating"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/details"
+        android:fillViewport= "true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="35dp"
+            tools:ignore="UselessParent"
+            android:background="@android:color/transparent"
+            tools:context="com.example.jerryduran.myapplication.Details">
+
+            <TextView
+                android:id="@+id/treeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:maxLines="2"
+                android:text="Species Name"
+                android:textAllCaps="false"
+                android:textSize="28sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/Desc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/treeName"
+                android:layout_marginTop="18dp"
+                android:text="SpeciesDesc1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/Desc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/Desc1"
+                android:layout_marginTop="11dp"
+                android:text="SpeciesDesc2"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/Desc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/Desc2"
+                android:layout_marginTop="12dp"
+                android:text="SpeciesDesc3"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/Desc4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/Desc3"
+                android:layout_marginTop="12dp"
+                android:text="SpeciesDesc4"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/Desc5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Desc4"
+                android:layout_marginTop="12dp"
+                android:text="SpeciesDesc5"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

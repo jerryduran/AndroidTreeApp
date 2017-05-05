@@ -77,6 +77,14 @@
         android:layout_alignLeft="@+id/homeTitle"
         android:layout_alignStart="@+id/homeTitle" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/sstorch"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
@@ -85,7 +93,7 @@
         android:layout_height="match_parent"
         app:menu="@menu/navigation_main"
         android:id="@+id/nav_menu"
-        android:layout_gravity="start">
-
+        android:layout_gravity="start"
+        android:background="#0e3f0e">
     </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>

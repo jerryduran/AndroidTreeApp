@@ -22,17 +22,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:onClick="onMoreButtonClicked"
-            android:text="More Details" />
+            android:layout_alignParentEnd="true"
+            android:onClick="onMoreButtonClicked"/>
 
         <ImageView
             android:id="@+id/treeImage"
             android:layout_width="410dp"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
             android:layout_above="@+id/treeName2"
-            android:layout_marginBottom="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="fitXY" />
@@ -41,38 +44,38 @@
             android:id="@+id/treeDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/button"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="34dp"
             android:maxLines="10"
             android:minLines="9"
+            android:layout_marginTop="3dp"
             android:text="SpeciesDesc"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:layout_below="@+id/treeName2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
-            android:id="@+id/treeName2"
+            android:text="CommonName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
             android:maxLines="1"
             android:text="CommonName"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:layout_marginTop="3dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ImageButton
             android:id="@+id/image_Favorite_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:background="@null"
             android:layout_toEndOf="@+id/treeName2"
             android:layout_toRightOf="@+id/treeName2"
+            android:layout_alignTop="@+id/treeName2"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
             android:backgroundTint="@android:drawable/screen_background_light_transparent"
             android:visibility="visible" />
-
     </RelativeLayout>
 </LinearLayout>

@@ -170,12 +170,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 boolean isID = true;
+                boolean isValid = true;
                 Intent i;
+                char ch;
                 for (int j = 0; j < query.length(); j++) {
-                    if (Character.isDigit(query.charAt(j))) {
-                    } else {
+                    ch = query.charAt(j);
+
+                    if (!((ch >= 'a' && ch <= 'z')
+                            || (ch >= 'A' && ch <= 'Z')
+                            || (ch >= '0' && ch <= '9')
+                            || (ch == ' ') || (ch == '-')))
+                    isValid = false;
+
+                    if ( !Character.isDigit(ch))
                         isID = false;
-                    }
                 }
                 if (isID == true) {
                     ArrayList<String> quotes = databaseAccess.getTree(Integer.parseInt(query));
@@ -197,7 +205,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Tree ID \"" + query + " \" not found.", Toast.LENGTH_SHORT).show();
                     }
 
-                } else {
+                }
+                else if(isValid == true) {
                     //Try to make exact search.
                     ArrayList<String> quotes2 = databaseAccess.getSpeciesByNameFull(query);
                     if(quotes2.get(0) != null){
@@ -229,6 +238,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "No tree found with \""+ query + "\" in its name.", Toast.LENGTH_SHORT).show();
                     }
 
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Invalid Search.", Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }

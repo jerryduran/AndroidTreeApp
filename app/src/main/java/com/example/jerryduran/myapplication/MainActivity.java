@@ -37,7 +37,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.ActionBar;
 import android.support.design.widget.NavigationView;
-
+import android.content.pm.ActivityInfo;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Locks screen to portrait
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         final DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         databaseAccess.open();
@@ -114,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
                                                              if(!quotes2.isEmpty())
                                                              {
-                                                                 i = new Intent(MainActivity.this, SearchResults.class);
+                                                                 i = new Intent(MainActivity.this, FavoriteList.class);
                                                                  i.putStringArrayListExtra("quotes2", quotes2);
 
                                                                  i.setAction(Intent.ACTION_SEARCH);

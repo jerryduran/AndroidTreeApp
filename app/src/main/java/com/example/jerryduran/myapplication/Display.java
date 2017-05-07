@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -28,7 +31,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Display extends AppCompatActivity{
+public class Display extends Activity{
     private TextView textView;
     private ImageView imageView;
     private ImageButton favoriteButton;
@@ -36,6 +39,8 @@ public class Display extends AppCompatActivity{
     private ArrayList<String> quotes2;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+    private SearchView mySearchView;
+    private NavigationView nv;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
 
@@ -44,7 +49,10 @@ public class Display extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display);
+        // Locks screen to portrait
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+/*
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
 
@@ -58,6 +66,7 @@ public class Display extends AppCompatActivity{
             actionBar.setDisplayShowTitleEnabled(false);
 
         }
+*/
 
         favoriteButton = (ImageButton) findViewById(R.id.image_Favorite_Button);
 
@@ -132,8 +141,11 @@ public class Display extends AppCompatActivity{
     public void onMoreButtonClicked(View v){
         Intent i = new Intent(Display.this, Details.class);
         i.putStringArrayListExtra("quotes2", quotes2);
+        i.putStringArrayListExtra("quotes", quotes);
         startActivity(i);
     }
+
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Activate the navigation drawer toggle
@@ -143,7 +155,7 @@ public class Display extends AppCompatActivity{
 
         return super.onOptionsItemSelected(item);
     }
-
+    */
 
 
 

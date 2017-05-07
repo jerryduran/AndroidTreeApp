@@ -5,20 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ActionMenuView;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SearchView;
@@ -27,9 +17,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Display extends Activity{
     private TextView textView;
@@ -52,27 +41,10 @@ public class Display extends Activity{
         // Locks screen to portrait
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-/*
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
-
-        mDrawerLayout.addDrawerListener(mDrawerToggle);
-        mDrawerToggle.syncState();
-
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            // method invoked only when the actionBar is not null.
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowTitleEnabled(false);
-
-        }
-*/
-
         favoriteButton = (ImageButton) findViewById(R.id.image_Favorite_Button);
 
         sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-
 
 
         this.textView = (TextView) findViewById(R.id.number);
@@ -120,14 +92,14 @@ public class Display extends Activity{
                 if(tmp == 1)
                 {
                     editor.putInt((((TextView) findViewById(R.id.treeName2)).getText().toString()) , tmp);
-                    Toast.makeText(Display.this, "Faved", Toast.LENGTH_LONG).show();
+                //    Toast.makeText(Display.this, "Favorited", Toast.LENGTH_SHORT).show();
                     favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_white_24dp);
 
                 }
                 else
                 {
                     editor.remove( (((TextView) findViewById(R.id.treeName2)).getText().toString()));
-                    Toast.makeText(Display.this, "Unfaved", Toast.LENGTH_LONG).show();
+                //    Toast.makeText(Display.this, "Unfavorited", Toast.LENGTH_SHORT).show();
                     favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_border_white_24dp);
                 }
 
@@ -144,18 +116,6 @@ public class Display extends Activity{
         i.putStringArrayListExtra("quotes", quotes);
         startActivity(i);
     }
-
-    /*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Activate the navigation drawer toggle
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    */
 
 
 

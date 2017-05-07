@@ -18,16 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Display"></activity>
-        <activity android:name=".Details"></activity>
-        <activity android:name=".TreeSpecies"></activity>
-        <activity android:name=".SearchResults"></activity>
-        <activity android:name=".FavoriteList"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity android:name=".Display"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Details"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".TreeSpecies"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".SearchResults"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Details2"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".FavoriteList"
+            android:screenOrientation="portrait"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
 
     </application>
 

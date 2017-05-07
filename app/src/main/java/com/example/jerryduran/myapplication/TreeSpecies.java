@@ -1,12 +1,9 @@
 package com.example.jerryduran.myapplication;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.content.Context;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -15,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -28,17 +26,15 @@ import java.util.List;
 public class TreeSpecies extends Activity {
     private TextView textView;
     private ImageView imageView;
-    private ImageButton favoriteButton;;
+    private ImageButton favoriteButton;
+    private ArrayList<String> quotes2;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
-    private ArrayList<String> quotes2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.treespecies);
-        // Locks screen to portrait
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         quotes2 = getIntent().getStringArrayListExtra("quotes2");
 
@@ -76,14 +72,14 @@ public class TreeSpecies extends Activity {
                 if(tmp == 1)
                 {
                     editor.putInt((((TextView) findViewById(R.id.treeName2)).getText().toString()) , tmp);
-                    Toast.makeText(TreeSpecies.this, "Faved", Toast.LENGTH_LONG).show();
+                //    Toast.makeText(TreeSpecies.this, "Favorited", Toast.LENGTH_SHORT).show();
                     favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_white_24dp);
 
                 }
                 else
                 {
                     editor.remove( (((TextView) findViewById(R.id.treeName2)).getText().toString()));
-                    Toast.makeText(TreeSpecies.this, "Unfaved", Toast.LENGTH_LONG).show();
+                //    Toast.makeText(TreeSpecies.this, "Unfavorited", Toast.LENGTH_SHORT).show();
                     favoriteButton.setBackgroundResource(R.mipmap.ic_favorite_border_white_24dp);
                 }
 

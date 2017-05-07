@@ -110,14 +110,15 @@
 
         <ImageButton
             android:id="@+id/image_Favorite_Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_toEndOf="@+id/treeName2"
             android:layout_toRightOf="@+id/treeName2"
             android:layout_alignTop="@+id/treeName2"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             android:background="@null"
+            android:scaleType="fitCenter"
             android:backgroundTint="@android:drawable/screen_background_light_transparent"
             android:visibility="visible" />
 
@@ -125,13 +126,3 @@
     </RelativeLayout>
 
 </LinearLayout>
-    <!--
-        <android.support.design.widget.NavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:menu="@menu/navigation_main"
-            android:layout_gravity="start"
-            android:background="#0b2d0b">
-        </android.support.design.widget.NavigationView>
-    </android.support.v4.widget.DrawerLayout>
--->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/all_trees"
-        android:icon="@mipmap/ic_search_white_24dp"
+        android:icon="@mipmap/ic_list_white_24dp"
         android:title="All Trees"/>
     <item android:id="@+id/favorites"
         android:icon="@mipmap/ic_favorite_white_24dp"
@@ -10,6 +10,6 @@
         android:icon="@mipmap/ic_explore_white_24dp"
         android:title="Tree of the month"/>
     <item android:id="@+id/about"
-        android:icon="@mipmap/ic_settings_white_24dp"
+        android:icon="@mipmap/ic_info_outline_white_24dp"
         android:title="About" />
 </menu>

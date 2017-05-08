@@ -111,7 +111,12 @@ public class Display extends Activity{
     }
 
     public void onMoreButtonClicked(View v){
-        Intent i = new Intent(Display.this, Details.class);
+        Intent i;
+        if( quotes.get(3) != null && quotes.get(4) != null)
+            i = new Intent(Display.this, Details.class);
+        else
+            i = new Intent(Display.this, Details2.class);
+
         i.putStringArrayListExtra("quotes2", quotes2);
         i.putStringArrayListExtra("quotes", quotes);
         startActivity(i);

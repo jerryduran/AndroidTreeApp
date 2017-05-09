@@ -1,34 +1,17 @@
-package com.example.jerryduran.myapplication;
+package com.roncoleman.treeid;
 
 
-import android.content.pm.ActivityInfo;
-import android.support.v7.app.ActionBarActivity;
-import android.widget.ArrayAdapter;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
-
-import java.util.ArrayList;
 import android.app.ListActivity;
-import java.util.List;
-
-import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ImageView;
-import android.widget.Toast;
+
+
 import java.util.ArrayList;
-
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import static com.example.jerryduran.myapplication.R.id.number;
-import static com.example.jerryduran.myapplication.R.id.searchTree;
 
 /**
  * Created by Chris Chan on 4/10/2017.

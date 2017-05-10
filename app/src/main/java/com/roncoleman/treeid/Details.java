@@ -89,7 +89,7 @@ public class Details extends Activity implements  OnMapReadyCallback{
     public void onMapReady(GoogleMap googleMap)
     {
         mGoogleMap = googleMap;
-        float zoom = 27;
+        float zoom = 15;
 
         LatLng ll = new LatLng(LatCoordinate, LongCoordinate); //Use th
 
@@ -98,8 +98,9 @@ public class Details extends Activity implements  OnMapReadyCallback{
         //Add map marker here
         googleMap.addMarker(new MarkerOptions().position(ll).title(((TextView) findViewById(R.id.treeName)).getText().toString()));
 
+
         CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll,zoom);
-        CameraUpdateFactory.zoomBy(10.0f);
+        //CameraUpdateFactory.zoomBy(10.0f);
 
         mGoogleMap.moveCamera(update);
     }

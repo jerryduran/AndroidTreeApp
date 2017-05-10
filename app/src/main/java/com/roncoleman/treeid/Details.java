@@ -32,8 +32,8 @@ public class Details extends Activity implements  OnMapReadyCallback{
     private ArrayList<String> gps;
     private ArrayList<String> gps2;
 
-    private float xCoordinate;
-    private float yCoordinate;
+    private float LatCoordinate;
+    private float LongCoordinate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +73,8 @@ public class Details extends Activity implements  OnMapReadyCallback{
         String xTemp = quotes.get(3);
         String yTemp = quotes.get(4);
 
-        xCoordinate = Float.valueOf(xTemp);
-        yCoordinate = Float.valueOf(yTemp);
+        LatCoordinate = Float.valueOf(xTemp);
+        LongCoordinate = Float.valueOf(yTemp);
 
         // Google Map
         initMap();
@@ -91,7 +91,7 @@ public class Details extends Activity implements  OnMapReadyCallback{
         mGoogleMap = googleMap;
         float zoom = 27;
 
-        LatLng ll = new LatLng(xCoordinate, yCoordinate); //Use th
+        LatLng ll = new LatLng(LatCoordinate, LongCoordinate); //Use th
 
 
         // Sets the map type to be "hybrid"

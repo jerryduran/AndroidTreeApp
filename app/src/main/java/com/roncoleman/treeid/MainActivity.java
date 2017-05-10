@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -28,6 +29,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //Delete database if the app has updated, then save current version.
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int oldVersion = prefs.getInt("oldVer", 0);
+        if(BuildConfig.VERSION_CODE > oldVersion){
+
+            this.deleteDatabase("csusTree.db");
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("oldVer", BuildConfig.VERSION_CODE);
+            editor.commit();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Locks screen to portrait

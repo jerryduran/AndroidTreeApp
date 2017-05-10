@@ -42,7 +42,10 @@
             android:layout_height="350dp"
             android:layout_above="@+id/treeName2"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="fitXY" />

@@ -55,15 +55,15 @@
         android:id="@+id/searchTree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="188dp"
         android:alpha="0.75"
         android:background="#bdc6c9"
         android:orientation="horizontal"
-        android:layout_alignRight="@+id/homeTitle"
-        android:layout_alignEnd="@+id/homeTitle"
+        android:layout_marginBottom="117dp"
+        android:layout_above="@+id/imageView"
         android:layout_alignLeft="@+id/searchLabel"
-        android:layout_alignStart="@+id/searchLabel" />
+        android:layout_alignStart="@+id/searchLabel"
+        android:layout_alignRight="@+id/homeTitle"
+        android:layout_alignEnd="@+id/homeTitle" />
 
     <TextView
         android:id="@+id/searchLabel"

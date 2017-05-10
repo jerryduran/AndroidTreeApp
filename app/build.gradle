@@ -7,7 +7,7 @@ android {
         applicationId "com.roncoleman.treeid"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 3
+        versionCode 1
         versionName "1.00"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
